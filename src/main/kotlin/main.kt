@@ -1,5 +1,6 @@
 import org.lwjgl.glfw.GLFW.glfwCreateWindow
 import org.lwjgl.glfw.GLFW.glfwInit
+import org.lwjgl.glfw.GLFW.glfwMakeContextCurrent
 import org.lwjgl.opengl.GL11.GL_FALSE
 import org.lwjgl.system.MemoryUtil.NULL
 import kotlin.system.exitProcess
@@ -19,4 +20,7 @@ fun main() {
         System.err.println("Can't create GLFW window.")
         exitProcess(1)
     }
+
+    // 作成したウィンドウをOpenGLの処理対象にする
+    glfwMakeContextCurrent(window)
 }
