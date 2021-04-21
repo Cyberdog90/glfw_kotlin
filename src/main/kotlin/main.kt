@@ -1,7 +1,9 @@
 import org.lwjgl.glfw.GLFW.glfwCreateWindow
 import org.lwjgl.glfw.GLFW.glfwInit
 import org.lwjgl.glfw.GLFW.glfwMakeContextCurrent
+import org.lwjgl.opengl.GL.createCapabilities
 import org.lwjgl.opengl.GL11.GL_FALSE
+import org.lwjgl.opengl.GL11.glClearColor
 import org.lwjgl.system.MemoryUtil.NULL
 import kotlin.system.exitProcess
 
@@ -23,4 +25,8 @@ fun main() {
 
     // 作成したウィンドウをOpenGLの処理対象にする
     glfwMakeContextCurrent(window)
+    createCapabilities()
+
+    // 背景色を指定する
+    glClearColor(1.0f, 1.0f, 1.0f, 0.0f)
 }
