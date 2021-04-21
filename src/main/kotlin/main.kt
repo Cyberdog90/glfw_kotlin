@@ -1,8 +1,13 @@
 import org.lwjgl.glfw.GLFW.glfwCreateWindow
 import org.lwjgl.glfw.GLFW.glfwInit
 import org.lwjgl.glfw.GLFW.glfwMakeContextCurrent
+import org.lwjgl.glfw.GLFW.glfwSwapBuffers
+import org.lwjgl.glfw.GLFW.glfwWaitEvents
+import org.lwjgl.glfw.GLFW.glfwWindowShouldClose
 import org.lwjgl.opengl.GL.createCapabilities
+import org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT
 import org.lwjgl.opengl.GL11.GL_FALSE
+import org.lwjgl.opengl.GL11.glClear
 import org.lwjgl.opengl.GL11.glClearColor
 import org.lwjgl.system.MemoryUtil.NULL
 import kotlin.system.exitProcess
@@ -29,4 +34,20 @@ fun main() {
 
     // 背景色を指定する
     glClearColor(1.0f, 1.0f, 1.0f, 0.0f)
+
+    // ウィンドウが開いている間繰り返す
+    while (glfwWindowShouldClose(window) == GL_FALSE.toBoolean()) {
+        //ウィンドウを消去する
+        glClear(GL_COLOR_BUFFER_BIT)
+
+        //
+        //ここで描画処理を行う
+        //
+
+        // カラーバッファを入れ替える
+        glfwSwapBuffers(window)
+
+        //イベントを取り出す
+        glfwWaitEvents()
+    }
 }
